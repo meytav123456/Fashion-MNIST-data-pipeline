@@ -27,7 +27,6 @@ We designed a Convolutional Autoencoder in PyTorch to capture non-linear spatial
 
 To observe the "bottleneck limit," we trained two separate variants: $d=2$ and $d=32$.
 
-![Training Loss Curves]
 <img width="910" height="588" alt="image" src="https://github.com/user-attachments/assets/d92114f7-460f-4f34-811e-ccd85aad6feb" />
 
 <img width="939" height="597" alt="image" src="https://github.com/user-attachments/assets/5707f0f1-2f9f-48e4-b097-cb521c72fb23" />
@@ -41,7 +40,7 @@ To observe the "bottleneck limit," we trained two separate variants: $d=2$ and $
 ### Image Reconstruction
 Extreme compression to $d=2$ results in severe information loss, producing blurred generic silhouettes. Conversely, the $d=32$ model preserves high-frequency details necessary to distinguish between topologically similar classes (e.g., Shirts vs. T-shirts).
 
-![Autoencoder Reconstructions]
+
 <img width="850" height="364" alt="image" src="https://github.com/user-attachments/assets/5400ddec-8003-4262-9ed3-3abb365be797" />
 <img width="846" height="383" alt="image" src="https://github.com/user-attachments/assets/6d5e23fc-4d9a-4328-8ab0-518eff98d195" />
 
@@ -58,7 +57,7 @@ To verify that the Autoencoder learned a continuous, meaningful manifold rather 
 ### Latent Space Visualization
 Projecting the 32-dimensional embeddings into a 2D plane reveals a dense, continuous manifold. The lack of strict convexity explains the varying success rates of different clustering algorithms.
 
-![Latent Space 2D Projection] <img width="798" height="563" alt="image" src="https://github.com/user-attachments/assets/64cd8bcd-c275-4b40-87e7-b7ab4309c809" />
+<img width="798" height="563" alt="image" src="https://github.com/user-attachments/assets/64cd8bcd-c275-4b40-87e7-b7ab4309c809" />
 <img width="811" height="624" alt="image" src="https://github.com/user-attachments/assets/6e284ab8-22c8-484d-bd85-3b43c4ca44d6" />
 
 
@@ -74,7 +73,7 @@ We applied unsupervised clustering to the $d=32$ representations (both SVD and C
 3. **DBSCAN (Density-Based):** * *The Challenge:* Fashion-MNIST embeddings suffer from **Density Bridging**—there are no clear "empty" boundaries between similar classes. 
    * *Tuning:* We implemented a custom geometrical knee-point detection on a K-Nearest Neighbors distance array, combined with a high-resolution grid search ($\Delta \epsilon = 0.01$), to identify the optimal $\epsilon$ parameter and force cluster separation.
 
-![Clustering Comparison] <img width="1706" height="583" alt="image" src="https://github.com/user-attachments/assets/20db7654-39c1-490b-96ee-ac9ec2308f4d" />
+<img width="1706" height="583" alt="image" src="https://github.com/user-attachments/assets/20db7654-39c1-490b-96ee-ac9ec2308f4d" />
 
 > *Figure 5: Visual comparison of K-Means, GMM, and DBSCAN assignments.*
 
